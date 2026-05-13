@@ -1,4 +1,5 @@
-//bg-indigo-900
+import ListaPostagens from "../../components/postagem/listadepostagens/ListaPostagens"
+import ModalPostagem from "../../components/postagem/modalpostagem/ModalPostagem"
 function Home() {
     return (
         <>
@@ -13,11 +14,9 @@ function Home() {
                         </p>
 
                         <div className="flex justify-around gap-4">
-                            <div className='rounded text-white 
-                                            bg-gray-700 border-white border-2 py-2 px-4'
-                                >
-                                Nova Postagem
-                            </div>
+
+                             <ModalPostagem />
+                             
                         </div>
                     </div>
 
@@ -30,6 +29,8 @@ function Home() {
                     </div>
                 </div>
             </div>
+
+             <ListaPostagens />
         </>
     )
 }

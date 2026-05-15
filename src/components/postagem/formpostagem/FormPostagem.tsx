@@ -1,9 +1,12 @@
 import { useContext, useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 import { AuthContext } from "../../../contexts/AuthContext";
+
 import type Postagem from "../../../models/Postagem";
 import type Tema from "../../../models/Tema";
+
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 
 function FormPostagem() {
@@ -35,7 +38,7 @@ function FormPostagem() {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
 
-            if (error.toString().includes('401')) {
+            if (error.toString().includes("401")) {
 
                 handleLogout();
 
@@ -48,7 +51,7 @@ function FormPostagem() {
 
         try {
 
-            await buscar('/temas', setTemas, {
+            await buscar("/temas", setTemas, {
                 headers: {
                     Authorization: `Bearer ${token}`
                 }
@@ -57,7 +60,7 @@ function FormPostagem() {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
 
-            if (error.toString().includes('401')) {
+            if (error.toString().includes("401")) {
 
                 handleLogout();
 
@@ -68,9 +71,9 @@ function FormPostagem() {
 
     useEffect(() => {
 
-        if (token === '') {
+        if (token === "") {
 
-            navigate('/');
+            navigate("/");
 
         }
 
@@ -100,7 +103,7 @@ function FormPostagem() {
 
     function retornar() {
 
-        navigate('/postagens');
+        navigate("/postagens");
 
     }
 
@@ -120,18 +123,18 @@ function FormPostagem() {
                     },
                 });
 
-                alert('Postagem atualizada com sucesso');
+                ToastAlerta("Postagem atualizada com sucesso", "sucesso");
 
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             } catch (error: any) {
 
-                if (error.toString().includes('401')) {
+                if (error.toString().includes("401")) {
 
                     handleLogout();
 
                 } else {
 
-                    alert('Erro ao atualizar a Postagem');
+                    ToastAlerta("Erro ao atualizar a postagem", "erro");
 
                 }
             }
@@ -146,18 +149,18 @@ function FormPostagem() {
                     },
                 });
 
-                alert('Postagem cadastrada com sucesso');
+                ToastAlerta("Postagem cadastrada com sucesso", "sucesso");
 
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             } catch (error: any) {
 
-                if (error.toString().includes('401')) {
+                if (error.toString().includes("401")) {
 
                     handleLogout();
 
                 } else {
 
-                    alert('Erro ao cadastrar a Postagem');
+                    ToastAlerta("Erro ao cadastrar a postagem", "erro");
 
                 }
             }
@@ -170,38 +173,44 @@ function FormPostagem() {
 
     return (
 
-        <div className="min-h-screen bg-gray-700 flex flex-col items-center">
+        <div className="min-h-screen bg-[#070b14] flex flex-col items-center px-4 py-10">
 
-            <h1 className="text-4xl text-center my-8 text-white font-bold">
+            <h1 className="text-4xl text-center mb-8 text-[#f8fafc] font-bold">
 
-                {id !== undefined ? 'Editar Postagem' : 'Cadastrar Postagem'}
+                {id !== undefined ? "Editar Postagem" : "Cadastrar Postagem"}
 
             </h1>
 
             <form
-                className="flex flex-col w-1/2 gap-4 bg-slate-200 
-                           p-8 rounded-2xl shadow-lg border border-black"
+                className="flex flex-col w-full max-w-2xl gap-5 bg-[#1e293b]
+                           p-8 rounded-4xl shadow-2xl
+                           border border-[#e8b4c710]"
                 onSubmit={gerarNovaPostagem}
             >
 
+                {/* TÍTULO */}
                 <div className="flex flex-col gap-2">
 
                     <label
                         htmlFor="titulo"
-                        className="font-semibold text-purple-900"
+                        className="font-semibold text-[#f8fafc]"
                     >
                         Título da Postagem
                     </label>
 
                     <input
                         type="text"
-                        placeholder="Titulo"
+                        placeholder="Digite o título"
                         name="titulo"
                         required
-                        className="border-2 border-purple-900 
-                                   rounded p-2 focus:outline-none 
-                                   focus:ring-2 focus:ring-purple-700"
-                        value={postagem.titulo || ''}
+                        className="border border-[#e8b4c720]
+                                   bg-[#0f172a]
+                                   text-[#f8fafc]
+                                   placeholder-[#94a3b8]
+                                   rounded-lg p-3
+                                   focus:outline-none
+                                   focus:border-[#c08497]"
+                        value={postagem.titulo || ""}
                         onChange={(e: ChangeEvent<HTMLInputElement>) =>
                             atualizarEstado(e)
                         }
@@ -209,24 +218,29 @@ function FormPostagem() {
 
                 </div>
 
+                {/* TEXTO */}
                 <div className="flex flex-col gap-2">
 
                     <label
                         htmlFor="texto"
-                        className="font-semibold text-purple-900"
+                        className="font-semibold text-[#f8fafc]"
                     >
                         Texto da Postagem
                     </label>
 
                     <input
                         type="text"
-                        placeholder="Texto"
+                        placeholder="Compartilhe sua ideia..."
                         name="texto"
                         required
-                        className="border-2 border-purple-900 
-                                   rounded p-2 focus:outline-none 
-                                   focus:ring-2 focus:ring-purple-700"
-                        value={postagem.texto || ''}
+                        className="border border-[#e8b4c720]
+                                   bg-[#0f172a]
+                                   text-[#f8fafc]
+                                   placeholder-[#94a3b8]
+                                   rounded-lg p-3
+                                   focus:outline-none
+                                   focus:border-[#c08497]"
+                        value={postagem.texto || ""}
                         onChange={(e: ChangeEvent<HTMLInputElement>) =>
                             atualizarEstado(e)
                         }
@@ -234,9 +248,10 @@ function FormPostagem() {
 
                 </div>
 
+                {/* TEMA */}
                 <div className="flex flex-col gap-2">
 
-                    <p className="font-semibold text-purple-900">
+                    <p className="font-semibold text-[#f8fafc]">
 
                         Tema da Postagem
 
@@ -245,16 +260,19 @@ function FormPostagem() {
                     <select
                         name="tema"
                         id="tema"
-                        className='border-2 border-purple-900 
-                                   p-2 rounded focus:outline-none 
-                                   focus:ring-2 focus:ring-purple-700'
+                        className="border border-[#e8b4c720]
+                                   bg-[#0f172a]
+                                   text-[#f8fafc]
+                                   p-3 rounded-lg
+                                   focus:outline-none
+                                   focus:border-[#c08497]"
                         onChange={(e) =>
 
                             setPostagem({
                                 ...postagem,
                                 tema: {
                                     id: Number(e.currentTarget.value),
-                                    descricao: ''
+                                    descricao: ""
                                 }
                             })
 
@@ -263,7 +281,7 @@ function FormPostagem() {
 
                         <option value="" disabled selected>
 
-                            Selecione um Tema
+                            Selecione um tema
 
                         </option>
 
@@ -281,11 +299,15 @@ function FormPostagem() {
 
                 </div>
 
+                {/* BOTÃO */}
                 <button
-                    type='submit'
-                    className='rounded bg-purple-900 hover:bg-purple-800
-                               text-white font-bold w-1/2 mx-auto 
-                               py-2 flex justify-center transition-all'
+                    type="submit"
+                    className="rounded-lg bg-[#b76e79]
+                               hover:bg-[#c08497]
+                               text-[#f8fafc]
+                               font-bold w-1/2 mx-auto
+                               py-3 flex justify-center
+                               transition-all"
                 >
 
                     {isLoading ?
@@ -299,7 +321,7 @@ function FormPostagem() {
 
                         <span>
 
-                            {id === undefined ? 'Cadastrar' : 'Atualizar'}
+                            {id === undefined ? "Cadastrar" : "Atualizar"}
 
                         </span>
 

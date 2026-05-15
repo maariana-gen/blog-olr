@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+.Toastify__toast.toast-olr {
+    background: #0f172a;
+    color: #f8fafc;
+    border: 1px solid rgba(232, 180, 199, 0.18);
+    border-radius: 1rem;
+    font-family: "Poppins", sans-serif;
+    box-shadow: 0 1.25rem 2.5rem rgba(0, 0, 0, 0.35);
+}
+
+.Toastify__toast.toast-olr .Toastify__toast-icon svg {
+    fill: #e8b4c7;
+}
+
+.Toastify__progress-bar.toast-olr-progress {
+    background: #b76e79;
+}

@@ -1,5 +1,6 @@
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+
 import FormPostagem from '../formpostagem/FormPostagem';
 
 function ModalPostagem() {
@@ -7,27 +8,38 @@ function ModalPostagem() {
     return (
 
         <>
-        
+
             <Popup
                 trigger={
+
                     <button
-                        className='border border-white rounded-xl 
-                                   px-4 py-2 bg-gray-700 text-white
-                                   hover:bg-gray-600 transition-all
-                                   font-semibold shadow-md'
+                        className="border border-[#e8b4c740]
+                                   rounded-xl px-5 py-3
+                                   bg-[#b76e79]
+                                   text-[#f8fafc]
+                                   hover:bg-[#c08497]
+                                   transition-all
+                                   font-semibold shadow-lg"
                     >
+
                         Nova Postagem
+
                     </button>
+
                 }
 
                 modal
 
                 contentStyle={{
-                    borderRadius: '1rem',
-                    paddingBottom: '2rem',
-                    background: '#374151',
-                    border: '2px solid #581c87',
-                    width: '60%'
+
+                    borderRadius: '2rem',
+                    padding: '0',
+                    background: '#1e293b',
+                    border: '1px solid rgba(232, 180, 199, 0.12)',
+                    width: '65%',
+                    overflow: 'hidden',
+                    boxShadow: '0 20px 40px rgba(0,0,0,0.35)'
+
                 }}
             >
 
@@ -36,6 +48,7 @@ function ModalPostagem() {
             </Popup>
 
         </>
+
     );
 }
 

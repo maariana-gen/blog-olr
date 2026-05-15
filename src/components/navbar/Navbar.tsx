@@ -12,8 +12,8 @@ function Navbar() {
     function logout() {
 
         handleLogout();
-        ToastAlerta('O Usuário foi desconectado com sucesso!', 'info')
-        navigate('/');
+        ToastAlerta("O Usuário foi desconectado com sucesso!", "info");
+        navigate("/");
 
     }
 
@@ -23,46 +23,68 @@ function Navbar() {
 
         component = (
 
-            <div className='w-full flex justify-center py-4
-            			   bg-gray-700 text-white'>
-            
-                <div className="container flex justify-between text-lg mx-8">
+            <header className="w-full bg-[#070b14]/95 border-b border-[#e8b4c710] text-[#f8fafc] shadow-lg backdrop-blur-md">
 
-                    <Link to='/home' className="text-2xl font-bold">
-                        Blog Pessoal
+                <div className="container mx-auto flex items-center justify-between px-8 py-5">
+
+                    {/* LOGO */}
+                    <Link
+                        to="/home"
+                        className="text-2xl font-bold tracking-wide text-[#e8b4c7]"
+                    >
+                        Blog OLR
                     </Link>
 
-                    <div className='flex gap-4'>
+                    {/* MENU */}
+                    <nav className="flex items-center gap-6 text-base font-medium">
 
-                        <Link to='/postagens' className='hover:underline'>
+                        <Link
+                            to="/postagens"
+                            className="text-[#94a3b8] hover:text-[#f8fafc] transition"
+                        >
                             Postagens
                         </Link>
 
-                        <Link to='/temas' className='hover:underline'>
+                        <Link
+                            to="/temas"
+                            className="text-[#94a3b8] hover:text-[#f8fafc] transition"
+                        >
                             Temas
                         </Link>
 
-                        <Link to='/cadastrartema' className='hover:underline'>
+                        <Link
+                            to="/cadastrartema"
+                            className="text-[#94a3b8] hover:text-[#f8fafc] transition"
+                        >
                             Cadastrar tema
                         </Link>
 
-                        <Link to='/perfil' className='hover:underline'>
+                        <Link
+                            to="/perfil"
+                            className="text-[#94a3b8] hover:text-[#f8fafc] transition"
+                        >
                             Perfil
                         </Link>
 
-                        <Link to='/' onClick={logout} className='hover:underline'>
+                        <Link
+                            to="/"
+                            onClick={logout}
+                            className="text-[#94a3b8] hover:text-[#f8fafc] transition"
+                        >
                             Sair
                         </Link>
-                    </div>
+
+                    </nav>
+
                 </div>
-            </div>
+
+            </header>
+
         );
+
     }
-    return (
-        <>
-            { component }
-        </>
-    );
+
+    return <>{component}</>;
 }
 
 export default Navbar;

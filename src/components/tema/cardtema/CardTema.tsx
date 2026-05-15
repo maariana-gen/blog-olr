@@ -1,29 +1,83 @@
 import { Link } from 'react-router-dom'
+
 import type Tema from '../../../models/Tema'
 
-interface CardTemaProps{
+interface CardTemaProps {
     tema: Tema
 }
 
 function CardTema({ tema }: CardTemaProps) {
+
     return (
-         <div className='border flex flex-col rounded-2xl overflow-hidden justify-between'>
-            <header className='py-2 px-6 bg-indigo-90 bg-purple-900 text-white font-bold text-2xl'>
+
+        <div
+            className="border border-[#e8b4c710]
+                       bg-[#1e293b]
+                       flex flex-col rounded-3xl
+                       overflow-hidden justify-between
+                       shadow-xl hover:scale-[1.02]
+                       transition duration-300"
+        >
+
+            {/* HEADER */}
+            <header
+                className="py-3 px-6 bg-[#0f172a]
+                           text-[#e8b4c7]
+                           font-bold text-2xl
+                           border-b border-[#e8b4c710]"
+            >
+
                 Tema
+
             </header>
-            <p className='p-8 text-3xl bg-slate-200 h-full'>{tema.descricao}</p>
-            
-            <div className="flex">
-                <Link to={`/editartema/${tema.id}`} 
-                    className='w-full text-slate-100 bg-purple-900 hover:bg-purple-800 
-                        flex items-center justify-center py-2 border-r border-black'>
-                    <button>Editar</button>
+
+            {/* CONTEÚDO */}
+            <p
+                className="p-8 text-2xl text-[#f8fafc]
+                           bg-[#1e293b] h-full
+                           flex items-center justify-center
+                           text-center font-semibold"
+            >
+
+                {tema.descricao}
+
+            </p>
+
+            {/* BOTÕES */}
+            <div className="flex border-t border-[#e8b4c710]">
+
+                <Link
+                    to={`/editartema/${tema.id}`}
+                    className="w-full text-[#f8fafc]
+                               bg-[#0f172a]
+                               hover:bg-[#c08497]
+                               flex items-center justify-center
+                               py-3 transition-all"
+                >
+
+                    <button className="font-medium">
+                        Editar
+                    </button>
+
                 </Link>
 
-                <Link to={`/deletartema/${tema.id}`} className='text-slate-100 bg-purple-900 hover:bg-purple-800 w-full 
-                    flex items-center justify-center'>
-                    <button>Deletar</button>
+                <div className="w-px bg-[#e8b4c710]" />
+
+                <Link
+                    to={`/deletartema/${tema.id}`}
+                    className="w-full text-[#f8fafc]
+                               bg-[#0f172a]
+                               hover:bg-[#c08497]
+                               flex items-center justify-center
+                               py-3 transition-all"
+                >
+
+                    <button className="font-medium">
+                        Deletar
+                    </button>
+
                 </Link>
+
             </div>
 
         </div>

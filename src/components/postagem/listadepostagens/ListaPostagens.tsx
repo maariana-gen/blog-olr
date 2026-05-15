@@ -1,9 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { SyncLoader } from "react-spinners";
+
 import { AuthContext } from "../../../contexts/AuthContext";
+
 import type Postagem from "../../../models/Postagem";
+
 import { buscar } from "../../../services/Service";
+
 import CardPostagem from "../cardpostagem/CardPostagem";
 
 function ListaPostagens() {
@@ -22,9 +26,9 @@ function ListaPostagens() {
 
         async function buscarPostagens() {
 
-            if (token === '') {
+            if (token === "") {
 
-                navigate('/');
+                navigate("/");
 
                 return;
 
@@ -34,7 +38,7 @@ function ListaPostagens() {
 
                 setIsLoading(true);
 
-                await buscar('/postagens', setPostagens, {
+                await buscar("/postagens", setPostagens, {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
@@ -57,30 +61,30 @@ function ListaPostagens() {
 
     return (
 
-        <div className="min-h-screen bg-gray-700">
+        <div className="min-h-screen bg-[#0f172a]">
 
             {isLoading && (
 
                 <div className="flex justify-center w-full my-8">
 
                     <SyncLoader
-                        color="#ffffff"
-                        size={32}
+                        color="#e8b4c7"
+                        size={24}
                     />
 
                 </div>
 
             )}
 
-            <div className="flex justify-center w-full my-4">
+            <div className="flex justify-center w-full py-8">
 
                 <div className="container flex flex-col px-4">
 
                     {!isLoading && postagens.length === 0 && (
 
-                        <span className="text-3xl text-center my-8 text-white">
+                        <span className="text-3xl text-center my-8 text-[#f8fafc] font-semibold">
 
-                            Nenhuma Postagem foi encontrada!
+                            Nenhuma postagem foi encontrada.
 
                         </span>
 

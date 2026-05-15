@@ -1,9 +1,12 @@
 import { useState, useContext, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom"
+import { ClipLoader } from "react-spinners"
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 import { AuthContext } from "../../../contexts/AuthContext"
+
 import type Tema from "../../../models/Tema"
+
 import { buscar, deletar } from "../../../services/Service"
-import { ClipLoader } from "react-spinners";
 
 function DeletarTema() {
 
@@ -12,7 +15,7 @@ function DeletarTema() {
     const [tema, setTema] = useState<Tema>({} as Tema)
 
     const [isLoading, setIsLoading] = useState<boolean>(false)
-    
+
     const { usuario, handleLogout } = useContext(AuthContext)
 
     const token = usuario.token
@@ -25,14 +28,14 @@ function DeletarTema() {
 
             await buscar(`/temas/${id}`, setTema, {
                 headers: {
-                    'Authorization': `Bearer ${token}`
+                    "Authorization": `Bearer ${token}`
                 }
             })
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
 
-            if (error.toString().includes('401')) {
+            if (error.toString().includes("401")) {
                 handleLogout()
             }
         }
@@ -40,11 +43,11 @@ function DeletarTema() {
 
     useEffect(() => {
 
-        if (token === '') {
+        if (token === "") {
 
-            alert('Você precisa estar logado')
+            ToastAlerta("Você precisa estar logado", "info")
 
-            navigate('/')
+            navigate("/")
 
         }
 
@@ -70,22 +73,22 @@ function DeletarTema() {
 
             await deletar(`/temas/${id}`, {
                 headers: {
-                    'Authorization': `Bearer ${token}`
+                    "Authorization": `Bearer ${token}`
                 }
             })
 
-            alert('Tema deletado com sucesso')
+            ToastAlerta("Tema deletado com sucesso", "sucesso")
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         } catch (error: any) {
 
-            if (error.toString().includes('401')) {
+            if (error.toString().includes("401")) {
 
                 handleLogout()
 
             } else {
 
-                alert('Erro ao deletar o tema.')
+                ToastAlerta("Erro ao deletar o tema.", "erro")
 
             }
         }
@@ -100,52 +103,63 @@ function DeletarTema() {
         navigate("/temas")
 
     }
-    
+
     return (
 
-        <div className='min-h-screen bg-gray-700 flex items-center justify-center'>
+        <div className="min-h-screen bg-[#070b14] flex items-center justify-center px-4">
 
-            <div className='container w-1/3 mx-auto'>
+            <div className="container w-full max-w-md mx-auto">
 
-                <h1 className='text-4xl text-center my-4 text-white font-bold'>
-                    Deletar tema
+                <h1 className="text-4xl text-center my-4 text-[#f8fafc] font-bold">
+                    Deletar Tema
                 </h1>
 
-                <p className='text-center font-semibold mb-4 text-white'>
-                    Você tem certeza de que deseja apagar o tema a seguir?
+                <p className="text-center font-semibold mb-4 text-[#94a3b8]">
+                    Você tem certeza de que deseja apagar este tema?
                 </p>
 
-                <div className='border border-black flex flex-col rounded-2xl overflow-hidden justify-between'>
+                <div className="border border-[#e8b4c710] bg-[#1e293b] flex flex-col rounded-3xl overflow-hidden justify-between shadow-xl">
 
-                    <header 
-                        className='py-2 px-6 bg-purple-900 text-white font-bold text-2xl'>
+                    <header className="py-3 px-6 bg-[#0f172a] text-[#e8b4c7] font-bold text-2xl border-b border-[#e8b4c710]">
                         Tema
                     </header>
 
-                    <p className='p-8 text-3xl bg-slate-200 h-full'>
+                    <p className="p-8 text-3xl text-[#f8fafc] bg-[#1e293b] h-full text-center font-semibold">
                         {tema.descricao}
                     </p>
 
-                    <div className="flex">
+                    <div className="flex border-t border-[#e8b4c710]">
 
-                        <button 
-                            className='text-white bg-purple-900 hover:bg-purple-800 
-                                       w-full py-2 border-r border-black'
-                            onClick={retornar}>
+                        <button
+                            className="w-full text-[#f8fafc]
+                                       bg-[#0f172a]
+                                       hover:bg-[#c08497]
+                                       py-3 transition-all"
+                            onClick={retornar}
+                        >
                             Não
                         </button>
 
-                        <button 
-                            className='w-full text-white bg-purple-900 
-                                       hover:bg-purple-800 flex items-center justify-center'
-                            onClick={deletarTema}>
+                        <div className="w-px bg-[#e8b4c710]" />
 
-                            { isLoading ? 
-                                <ClipLoader 
-                                    color="#ffffff" 
+                        <button
+                            className="w-full text-[#f8fafc]
+                                       bg-[#0f172a]
+                                       hover:bg-[#c08497]
+                                       flex items-center justify-center
+                                       py-3 transition-all"
+                            onClick={deletarTema}
+                        >
+
+                            {isLoading ?
+
+                                <ClipLoader
+                                    color="#ffffff"
                                     size={24}
-                                /> : 
+                                /> :
+
                                 <span>Sim</span>
+
                             }
 
                         </button>

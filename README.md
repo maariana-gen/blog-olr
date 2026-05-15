@@ -2,13 +2,7 @@
 
 Um blog pessoal desenvolvido com React, TypeScript e Tailwind CSS, criado para compartilhar ideias, aprendizados e experiências através da tecnologia.
 
-O projeto foi desenvolvido inicialmente durante os estudos em React, mas recebeu uma reformulação completa de identidade visual, tornando-se um projeto autoral com foco em design moderno, experiência do usuário e organização de componentes.
-
----
-
-## 🌙 Preview
-
-<img src="https://i.imgur.com/fyfri1v.png" alt="Preview do Blog OLR" width="700"/>
+O projeto foi desenvolvido inicialmente durante os estudos em React e posteriormente recebeu uma reformulação completa de identidade visual, trazendo uma interface moderna, elegante e mais alinhada ao meu estilo de desenvolvimento front-end.
 
 ---
 
@@ -20,23 +14,21 @@ O projeto foi desenvolvido inicialmente durante os estudos em React, mas recebeu
 - Tailwind CSS
 - React Router DOM
 - Axios
-- React Toastify
 - Context API
+- React Toastify
 
 ---
 
-## 🎨 Identidade Visual
+## 🎨 Design e Identidade Visual
 
-O Blog OLR utiliza uma interface inspirada em tons:
-- navy escuro
-- rosa queimado
-- cinza azulado
+O Blog OLR foi reconstruído com foco em:
 
-com foco em:
-- minimalismo
-- elegância
-- legibilidade
+- interface minimalista
+- paleta navy + rosa queimado
 - consistência visual
+- responsividade
+- experiência do usuário
+- componentes reutilizáveis
 
 ---
 
@@ -47,9 +39,9 @@ com foco em:
 ✅ CRUD completo de temas  
 ✅ Sistema de autenticação com token  
 ✅ Perfil do usuário  
+✅ Integração com API REST  
 ✅ Toasts personalizados  
 ✅ Interface responsiva  
-✅ Integração com API REST  
 
 ---
 
@@ -61,17 +53,16 @@ Durante o desenvolvimento foram aplicados conceitos como:
 - Hooks
 - Context API
 - Consumo de API
-- Rotas
-- Renderização condicional
+- Rotas com React Router DOM
 - Gerenciamento de estado
-- Responsividade
-- Estilização com Tailwind
+- Renderização condicional
+- Estilização com Tailwind CSS
 
 ---
 
-## 🔗 Backend da Aplicação
+## 🔗 Backend
 
-Este projeto consome uma API REST desenvolvida separadamente.
+Este projeto consome uma API REST desenvolvida separadamente para gerenciamento de usuários, temas e postagens.
 
 ---
 
@@ -79,5 +70,4 @@ Este projeto consome uma API REST desenvolvida separadamente.
 
 Mariana Soares
 
-[LinkedIn](https://www.linkedin.com/in/mariana-de-oliveira-soares-66b500315/)  
-[Instagram](https://www.instagram.com/maari_olr)
+[LinkedIn](https://www.linkedin.com/in/mariana-de-oliveira-soares-66b500315/)

@@ -1,73 +1,83 @@
-# React + TypeScript + Vite
+# ✨ Blog OLR
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um blog pessoal desenvolvido com React, TypeScript e Tailwind CSS, criado para compartilhar ideias, aprendizados e experiências através da tecnologia.
 
-Currently, two official plugins are available:
+O projeto foi desenvolvido inicialmente durante os estudos em React, mas recebeu uma reformulação completa de identidade visual, tornando-se um projeto autoral com foco em design moderno, experiência do usuário e organização de componentes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🌙 Preview
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+<img src="https://i.imgur.com/fyfri1v.png" alt="Preview do Blog OLR" width="700"/>
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Tecnologias Utilizadas
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router DOM
+- Axios
+- React Toastify
+- Context API
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🎨 Identidade Visual
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+O Blog OLR utiliza uma interface inspirada em tons:
+- navy escuro
+- rosa queimado
+- cinza azulado
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+com foco em:
+- minimalismo
+- elegância
+- legibilidade
+- consistência visual
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## ⚙️ Funcionalidades
+
+✅ Cadastro e login de usuário  
+✅ CRUD completo de postagens  
+✅ CRUD completo de temas  
+✅ Sistema de autenticação com token  
+✅ Perfil do usuário  
+✅ Toasts personalizados  
+✅ Interface responsiva  
+✅ Integração com API REST  
+
+---
+
+## 📚 Conceitos Aplicados
+
+Durante o desenvolvimento foram aplicados conceitos como:
+
+- Componentização
+- Hooks
+- Context API
+- Consumo de API
+- Rotas
+- Renderização condicional
+- Gerenciamento de estado
+- Responsividade
+- Estilização com Tailwind
+
+---
+
+## 🔗 Backend da Aplicação
+
+Este projeto consome uma API REST desenvolvida separadamente.
+
+---
+
+## 👩🏻‍💻 Desenvolvido por
+
+Mariana Soares
+
+[LinkedIn](https://www.linkedin.com/in/mariana-de-oliveira-soares-66b500315/)  
+[Instagram](https://www.instagram.com/maari_olr)
